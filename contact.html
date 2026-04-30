@@ -167,6 +167,80 @@
     background: var(--cream-warm);
     border-radius: 6px;
   }
+
+  /* Validation — erreurs sous les champs */
+  .field-error {
+    display: block;
+    font-size: 0.82rem;
+    color: var(--coral-deep);
+    margin-top: 5px;
+    min-height: 1.1em;
+    font-weight: 600;
+  }
+  .field input[aria-invalid="true"],
+  .field textarea[aria-invalid="true"],
+  .field select[aria-invalid="true"] {
+    border-color: var(--coral-deep);
+    background: #fff0ef;
+  }
+
+  /* Honeypot anti-spam */
+  .field-honeypot { display: none; }
+
+  /* Notice RGPD */
+  .rgpd-notice {
+    margin-top: 14px;
+    font-size: 0.8rem;
+    color: var(--ink-mute);
+    line-height: 1.5;
+    margin-bottom: 0;
+  }
+  .rgpd-notice a { color: var(--ink-mute); text-decoration: underline; font-size: 0.8rem; }
+  .rgpd-notice a:hover { color: var(--peach-deep); }
+
+  /* Message d'erreur envoi */
+  .form-error-msg {
+    margin-top: 18px;
+    padding: 14px 18px;
+    background: var(--coral-soft);
+    border-radius: var(--r-md);
+    color: var(--coral-deep);
+    font-size: 0.92rem;
+  }
+  .form-error-msg a { color: var(--coral-deep); font-weight: 700; }
+
+  /* Carte de succès */
+  .form-success-card {
+    background: var(--paper);
+    border-radius: var(--r-lg);
+    padding: clamp(32px, 5vw, 56px);
+    border: 1px solid var(--line);
+    box-shadow: var(--shadow-md);
+    text-align: center;
+  }
+  .success-icon {
+    width: 72px; height: 72px;
+    border-radius: 50%;
+    background: var(--mint-soft);
+    display: grid;
+    place-items: center;
+    margin: 0 auto 20px;
+    font-size: 2rem;
+  }
+  .form-success-card h2 {
+    font-family: var(--font-script);
+    font-size: clamp(2rem, 5vw, 2.8rem);
+    color: var(--peach-deep);
+    margin-bottom: 12px;
+  }
+  .form-success-card p { color: var(--ink-soft); max-width: 420px; margin: 0 auto 8px; }
+  .form-success-actions {
+    margin-top: 28px;
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
 </style>
 </head>
 <body>
@@ -207,29 +281,43 @@
     <div class="contact-grid">
 
       <!-- ===== FORM ===== -->
-      <form id="form" class="form-card" onsubmit="event.preventDefault(); document.getElementById('thanks').hidden = false; this.reset();">
+      <form id="form" class="form-card" action="https://formspree.io/f/mlgzewkw" method="POST" novalidate>
         <h2>Nous écrire</h2>
-        <p class="lead">Tous les champs marqués sont nécessaires pour qu'on puisse bien vous répondre.</p>
+        <p class="lead">Les champs sans mention <em>(optionnel)</em> sont nécessaires pour vous répondre.</p>
+
+        <!-- Honeypot anti-spam : invisible aux humains, Formspree filtre si rempli -->
+        <div class="field-honeypot" aria-hidden="true">
+          <input type="text" name="_gotcha" tabindex="-1" autocomplete="off">
+        </div>
+        <!-- Champs Formspree remplis dynamiquement -->
+        <input type="hidden" id="hidden-subject" name="_subject" value="Nouveau message Créa-Kid">
+        <input type="hidden" id="hidden-replyto" name="_replyto">
 
         <div class="field-row">
           <div class="field">
             <label for="name">Votre nom</label>
-            <input id="name" name="name" type="text" autocomplete="name" required placeholder="Marie Dupont">
+            <input id="name" name="name" type="text" autocomplete="name" required
+                   placeholder="Marie Dupont" aria-describedby="name-error">
+            <span class="field-error" id="name-error" role="alert"></span>
           </div>
           <div class="field">
             <label for="email">Email</label>
-            <input id="email" name="email" type="email" autocomplete="email" required placeholder="marie@email.fr">
+            <input id="email" name="email" type="email" autocomplete="email" required
+                   placeholder="marie@email.fr" aria-describedby="email-error">
+            <span class="field-error" id="email-error" role="alert"></span>
           </div>
         </div>
 
         <div class="field-row">
           <div class="field">
             <label for="phone">Téléphone <span class="opt">(optionnel)</span></label>
-            <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="06 12 34 56 78">
+            <input id="phone" name="phone" type="tel" autocomplete="tel"
+                   placeholder="06 12 34 56 78" aria-describedby="phone-error">
+            <span class="field-error" id="phone-error" role="alert"></span>
           </div>
           <div class="field">
             <label for="subject">Sujet</label>
-            <select id="subject" name="subject" required>
+            <select id="subject" name="subject" required aria-describedby="subject-error">
               <option value="">Choisir un sujet…</option>
               <option>Une question générale</option>
               <option>Un anniversaire / privatisation</option>
@@ -237,26 +325,43 @@
               <option>Tarif assistante maternelle</option>
               <option>Autre</option>
             </select>
+            <span class="field-error" id="subject-error" role="alert"></span>
           </div>
         </div>
 
         <div class="field">
           <label for="message">Votre message</label>
-          <textarea id="message" name="message" required placeholder="Bonjour Marine, j'aimerais…"></textarea>
+          <textarea id="message" name="message" required
+                    placeholder="Bonjour Marine, j'aimerais…"
+                    aria-describedby="message-error"></textarea>
+          <span class="field-error" id="message-error" role="alert"></span>
         </div>
 
         <div class="submit-row">
-          <button type="submit" class="btn btn-primary">
+          <button type="submit" id="submit-btn" class="btn btn-primary">
             Envoyer
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/></svg>
           </button>
-          <small>On vous répond dès que possible 🌈</small>
         </div>
 
-        <div id="thanks" hidden style="margin-top:20px; padding:14px 18px; background:var(--mint-soft); border-radius:var(--r-md); color:var(--mint-deep); font-weight:600;">
-          ✨ Merci, votre message est parti ! Marine vous répondra très vite.
+        <p class="rgpd-notice">En envoyant ce formulaire, vous acceptez que vos informations soient utilisées uniquement pour vous répondre. Aucune donnée n'est partagée avec des tiers. <a href="mentions-legales.html">Mentions légales</a></p>
+
+        <div id="form-error" hidden class="form-error-msg">
+          Oops ! L'envoi a échoué. Écrivez directement à <a href="mailto:marine.creakid@gmail.com">marine.creakid@gmail.com</a>
         </div>
       </form>
+
+      <!-- ===== SUCCÈS ===== -->
+      <div id="form-success" hidden class="form-success-card" tabindex="-1">
+        <div class="success-icon" aria-hidden="true">✨</div>
+        <h2>Merci !</h2>
+        <p>Marine vous répondra sous 24h.</p>
+        <p>En attendant, n'hésitez pas à découvrir nos espaces ou à venir directement nous rendre visite !</p>
+        <div class="form-success-actions">
+          <a href="index.html" class="btn btn-primary">Retour à l'accueil</a>
+          <a href="concept.html" class="btn btn-ghost">Nos espaces</a>
+        </div>
+      </div>
 
       <!-- ===== INFO SIDE ===== -->
       <aside class="info-stack">
@@ -376,5 +481,103 @@
     </div>
   </div>
 </footer>
+
+<script>
+(function () {
+  var form    = document.getElementById('form');
+  var btn     = document.getElementById('submit-btn');
+  var success = document.getElementById('form-success');
+  var errBox  = document.getElementById('form-error');
+  var SEND_SVG = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/></svg>';
+
+  function showErr(id, msg) {
+    var el = document.getElementById(id + '-error');
+    var inp = document.getElementById(id);
+    if (el)  el.textContent = msg;
+    if (inp) inp.setAttribute('aria-invalid', 'true');
+  }
+  function clearErr(id) {
+    var el = document.getElementById(id + '-error');
+    var inp = document.getElementById(id);
+    if (el)  el.textContent = '';
+    if (inp) inp.removeAttribute('aria-invalid');
+  }
+
+  function validate() {
+    var ok = true, first = null;
+
+    var nm = document.getElementById('name');
+    if (!nm.value.trim()) {
+      showErr('name', 'Votre nom est requis.');
+      if (!first) first = nm; ok = false;
+    } else clearErr('name');
+
+    var em = document.getElementById('email');
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(em.value.trim())) {
+      showErr('email', 'Adresse email invalide.');
+      if (!first) first = em; ok = false;
+    } else clearErr('email');
+
+    var ph = document.getElementById('phone');
+    if (ph.value.trim() && ph.value.replace(/[\s.\-+()/]/g, '').length < 10) {
+      showErr('phone', 'Numéro incomplet (10 chiffres min.).');
+      if (!first) first = ph; ok = false;
+    } else clearErr('phone');
+
+    var sb = document.getElementById('subject');
+    if (!sb.value) {
+      showErr('subject', 'Veuillez choisir un sujet.');
+      if (!first) first = sb; ok = false;
+    } else clearErr('subject');
+
+    var mg = document.getElementById('message');
+    if (mg.value.trim().length < 10) {
+      showErr('message', 'Votre message doit faire au moins 10 caractères.');
+      if (!first) first = mg; ok = false;
+    } else clearErr('message');
+
+    if (first) first.focus();
+    return ok;
+  }
+
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    if (!validate()) return;
+
+    /* Mise à jour des champs Formspree dynamiques */
+    document.getElementById('hidden-subject').value = 'Nouveau message Créa-Kid : ' + document.getElementById('subject').value;
+    document.getElementById('hidden-replyto').value = document.getElementById('email').value;
+
+    btn.disabled = true;
+    btn.textContent = 'Envoi en cours…';
+    errBox.hidden = true;
+
+    try {
+      var res = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { Accept: 'application/json' }
+      });
+      if (res.ok) {
+        form.hidden = true;
+        success.hidden = false;
+        success.focus();
+      } else {
+        throw new Error(res.status);
+      }
+    } catch (_) {
+      errBox.hidden = false;
+      btn.disabled = false;
+      btn.innerHTML = 'Envoyer ' + SEND_SVG;
+    }
+  });
+
+  /* Effacer l'erreur dès que l'utilisateur corrige */
+  ['name', 'email', 'phone', 'subject', 'message'].forEach(function (id) {
+    var el = document.getElementById(id);
+    if (el) el.addEventListener('input', function () { clearErr(id); });
+  });
+}());
+</script>
 </body>
 </html>
