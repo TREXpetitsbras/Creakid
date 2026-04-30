@@ -1,0 +1,39 @@
+<!-- TOPBAR — copy this into <body> top of each page; set .active on the matching link -->
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="index.html" aria-label="Créa-Kid — Accueil">
+      <svg class="brand-mark" viewBox="0 0 64 44" aria-hidden="true">
+        <!-- Mini rainbow -->
+        <path d="M6 38 A26 26 0 0 1 58 38" fill="none" stroke="#F5A56C" stroke-width="3.5" stroke-linecap="round"/>
+        <path d="M11 38 A21 21 0 0 1 53 38" fill="none" stroke="#9FE0B7" stroke-width="3.5" stroke-linecap="round"/>
+        <path d="M16 38 A16 16 0 0 1 48 38" fill="none" stroke="#F8CC7A" stroke-width="3.5" stroke-linecap="round"/>
+        <path d="M21 38 A11 11 0 0 1 43 38" fill="none" stroke="#F5B5B0" stroke-width="3.5" stroke-linecap="round"/>
+        <circle cx="6" cy="38" r="2.6" fill="#F5A56C"/>
+        <circle cx="58" cy="38" r="2.6" fill="#F5A56C"/>
+      </svg>
+      <span>Créa-Kid</span>
+    </a>
+
+    <nav class="nav-links" aria-label="Navigation principale">
+      <a href="index.html">Accueil</a>
+      <a href="concept.html">Le concept</a>
+      <a href="tarifs.html">Tarifs</a>
+      <a href="planning.html">Planning</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+    <a class="btn btn-primary btn-sm nav-cta" href="contact.html">Nous trouver</a>
+
+    <button class="menu-btn" aria-label="Menu" onclick="document.getElementById('mnav').classList.toggle('open')">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </div>
+
+  <nav id="mnav" class="mobile-nav" aria-label="Menu mobile">
+    <a href="index.html">Accueil</a>
+    <a href="concept.html">Le concept</a>
+    <a href="tarifs.html">Tarifs</a>
+    <a href="planning.html">Planning</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>

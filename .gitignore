@@ -20,6 +20,9 @@ desktop.ini
 .vscode/
 .idea/
 
+# Claude Code (outil de développement, pas du projet)
+.claude/
+
 # Sources & brouillons (ne pas versionner)
 scraps/
 uploads/
