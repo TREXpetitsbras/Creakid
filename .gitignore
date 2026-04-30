@@ -1,0 +1,25 @@
+# Dépendances
+node_modules/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+desktop.ini
+
+# Fichiers temporaires
+*.tmp
+*.log
+*.bak
+*.swp
+
+# Éditeurs
+.vscode/
+.idea/
+
+# Sources & brouillons (ne pas versionner)
+scraps/
+uploads/

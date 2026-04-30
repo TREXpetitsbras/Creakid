@@ -1,0 +1,593 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Créa-Kid — Jeux libres, café & ateliers à St Maximin</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Centre d'activités pour enfants 0-6 ans à Saint-Maximin-la-Sainte-Baume : aire de jeux libres, café chaleureux, ateliers parents-enfants et anniversaires. Ouvert du mardi au samedi.">
+<meta name="keywords" content="centre activités enfants, jeux libres, café enfants, Saint-Maximin-la-Sainte-Baume, ateliers parents enfants, anniversaires enfants, espace jeux 0-6 ans, Créa-Kid">
+<meta name="author" content="Créa-Kid">
+<meta name="theme-color" content="#F5A56C">
+<link rel="icon" href="assets/logo-creakid-small.png" type="image/png">
+<!-- Open Graph -->
+<meta property="og:title" content="Créa-Kid — Jeux libres, café & ateliers à Saint-Maximin">
+<meta property="og:description" content="Centre d'activités pour enfants 0-6 ans à Saint-Maximin-la-Sainte-Baume : aire de jeux libres, café chaleureux, ateliers parents-enfants et anniversaires.">
+<meta property="og:image" content="https://creakid.fr/assets/logo-creakid.png">
+<meta property="og:url" content="https://creakid.fr/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="Créa-Kid">
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Créa-Kid — Jeux libres, café & ateliers à Saint-Maximin">
+<meta name="twitter:description" content="Centre d'activités pour enfants 0-6 ans à Saint-Maximin-la-Sainte-Baume : aire de jeux libres, café chaleureux, ateliers parents-enfants et anniversaires.">
+<meta name="twitter:image" content="https://creakid.fr/assets/logo-creakid.png">
+<link rel="stylesheet" href="style.css">
+<style>
+  /* ==================== HOME-SPECIFIC ==================== */
+
+  /* HERO */
+  .hero {
+    position: relative;
+    overflow: hidden;
+    padding: clamp(40px, 7vw, 80px) 0 clamp(48px, 9vw, 100px);
+  }
+  .hero-inner {
+    text-align: center;
+    position: relative;
+    z-index: 2;
+  }
+  .hero-logo {
+    width: min(560px, 88vw);
+    margin: 0 auto 24px;
+    filter: drop-shadow(0 6px 20px rgba(232,136,74,0.18));
+  }
+  .hero-tagline {
+    display: inline-block;
+    font-family: var(--font-script);
+    font-size: clamp(1.6rem, 4vw, 2.2rem);
+    color: var(--peach-deep);
+    font-weight: 700;
+    margin-bottom: 18px;
+  }
+  .hero-sub {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: clamp(1.1rem, 2.6vw, 1.45rem);
+    color: var(--ink);
+    max-width: 620px;
+    margin: 0 auto 30px;
+    line-height: 1.4;
+  }
+  .hero-hours {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 6px 18px;
+    justify-content: center;
+    align-items: center;
+    background: var(--paper);
+    border: 1px dashed var(--peach);
+    border-radius: 999px;
+    padding: 12px 22px;
+    margin-bottom: 26px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .hero-hours svg { color: var(--peach); }
+  .hero-hours .pipe { color: var(--line); margin: 0 4px; }
+
+  .hero-ctas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+  }
+
+  /* Floating decorative shapes — hidden on small screens */
+  .float-deco {
+    position: absolute;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.85;
+  }
+  .float-deco.fd-1 { top: 30px; left: -20px; width: 110px; transform: rotate(-12deg); }
+  .float-deco.fd-2 { top: 60px; right: -10px; width: 95px; transform: rotate(15deg); }
+  .float-deco.fd-3 { bottom: 30px; left: 6%; width: 70px; }
+  .float-deco.fd-4 { bottom: 70px; right: 8%; width: 80px; transform: rotate(20deg); }
+  @media (max-width: 760px) {
+    .float-deco.fd-1, .float-deco.fd-2 { width: 70px; }
+    .float-deco.fd-3, .float-deco.fd-4 { display: none; }
+  }
+
+  /* ==================== CONCEPT ==================== */
+  .pillars {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 1fr;
+    margin-top: 30px;
+  }
+  @media (min-width: 600px) { .pillars { grid-template-columns: 1fr 1fr; } }
+  @media (min-width: 1000px) { .pillars { grid-template-columns: repeat(4, 1fr); } }
+
+  .pillar {
+    background: var(--paper);
+    border-radius: var(--r-lg);
+    padding: 26px 22px 28px;
+    text-align: center;
+    border: 1px solid var(--line);
+    transition: transform 0.2s ease, box-shadow 0.25s;
+    position: relative;
+  }
+  .pillar:hover { transform: translateY(-4px); box-shadow: var(--shadow-warm); }
+
+  .pillar-icon {
+    width: 90px;
+    height: 90px;
+    margin: 0 auto 14px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+  }
+  .pillar.p-peach .pillar-icon { background: var(--peach-soft); }
+  .pillar.p-coral .pillar-icon { background: var(--coral-soft); }
+  .pillar.p-mint  .pillar-icon { background: var(--mint-soft); }
+  .pillar.p-gold  .pillar-icon { background: var(--gold-soft); }
+
+  .pillar h3 { font-size: 1.2rem; margin: 0 0 6px; }
+  .pillar p { font-size: 0.95rem; color: var(--ink-soft); margin: 0; }
+  .pillar .age { display: block; font-family: var(--font-script); color: var(--peach-deep); font-weight: 700; font-size: 1.2rem; margin-top: 8px; }
+
+  /* ==================== GALLERY ==================== */
+  .gallery {
+    display: grid;
+    gap: 14px;
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 28px;
+  }
+  @media (min-width: 760px) {
+    .gallery { grid-template-columns: repeat(6, 1fr); grid-auto-rows: 160px; }
+    .gallery > :nth-child(1) { grid-column: span 3; grid-row: span 2; }
+    .gallery > :nth-child(2) { grid-column: span 3; }
+    .gallery > :nth-child(3) { grid-column: span 2; }
+    .gallery > :nth-child(4) { grid-column: span 1; }
+    .gallery > :nth-child(5) { grid-column: span 3; }
+    .gallery > :nth-child(6) { grid-column: span 3; }
+  }
+  .gallery .ph, .gallery img {
+    aspect-ratio: 4/3;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--r-md);
+  }
+  @media (min-width: 760px) {
+    .gallery .ph, .gallery img { aspect-ratio: auto; }
+  }
+
+  /* ==================== PLANNING PREVIEW ==================== */
+  .week {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 28px;
+  }
+  @media (min-width: 760px) { .week { grid-template-columns: repeat(7, 1fr); } }
+
+  .day {
+    background: var(--paper);
+    border-radius: var(--r-md);
+    padding: 14px 12px;
+    text-align: center;
+    border: 1px solid var(--line);
+    min-height: 130px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .day.closed { background: var(--cream-warm); opacity: 0.7; }
+  .day-name { font-family: var(--font-display); font-weight: 700; font-size: 0.95rem; color: var(--ink); }
+  .day-status { font-size: 0.78rem; color: var(--ink-mute); }
+  .day-events { display: flex; flex-direction: column; gap: 4px; margin-top: 4px; }
+  .day-event {
+    font-size: 0.75rem;
+    padding: 4px 6px;
+    border-radius: 8px;
+    background: var(--peach-soft);
+    color: var(--peach-deep);
+    font-weight: 600;
+  }
+  .day-event.e-mint { background: var(--mint-soft); color: var(--mint-deep); }
+  .day-event.e-coral { background: var(--coral-soft); color: var(--coral-deep); }
+  .day-event.e-gold { background: var(--gold-soft); color: var(--gold-deep); }
+
+  /* ==================== CONTACT BLOCK ==================== */
+  .welcome-block {
+    background: linear-gradient(135deg, var(--coral-soft), var(--peach-soft));
+    border-radius: var(--r-xl);
+    padding: clamp(32px, 5vw, 56px);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--coral);
+  }
+  .welcome-block h2 {
+    font-family: var(--font-script);
+    font-size: clamp(2.2rem, 5.5vw, 3.4rem);
+    color: var(--peach-deep);
+    margin-bottom: 14px;
+    line-height: 1.05;
+  }
+  .welcome-info {
+    display: grid;
+    gap: 14px;
+    grid-template-columns: 1fr;
+    max-width: 720px;
+    margin: 30px auto 0;
+  }
+  @media (min-width: 720px) { .welcome-info { grid-template-columns: repeat(3, 1fr); } }
+  .info-pill {
+    background: var(--paper);
+    padding: 18px 16px;
+    border-radius: var(--r-md);
+    border: 1px solid white;
+    box-shadow: var(--shadow-sm);
+  }
+  .info-pill .icon { width: 36px; height: 36px; margin: 0 auto 8px; color: var(--peach-deep); }
+  .info-pill strong { display: block; font-family: var(--font-display); margin-bottom: 4px; }
+  .info-pill a { color: var(--ink); font-weight: 600; }
+
+  /* ==================== Section bg accents ==================== */
+  .bg-cream-warm {
+    background: linear-gradient(180deg, transparent 0%, var(--cream-warm) 100%);
+  }
+  .bg-paper-soft {
+    background: var(--paper);
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(232,179,85,0.12) 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== TOPBAR ===== -->
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="index.html" aria-label="Créa-Kid — Accueil">
+      <svg class="brand-mark" viewBox="0 0 64 44" aria-hidden="true">
+        <path d="M6 38 A26 26 0 0 1 58 38" fill="none" stroke="#F5A56C" stroke-width="3.5" stroke-linecap="round"/>
+        <path d="M11 38 A21 21 0 0 1 53 38" fill="none" stroke="#9FE0B7" stroke-width="3.5" stroke-linecap="round"/>
+        <path d="M16 38 A16 16 0 0 1 48 38" fill="none" stroke="#F8CC7A" stroke-width="3.5" stroke-linecap="round"/>
+        <path d="M21 38 A11 11 0 0 1 43 38" fill="none" stroke="#F5B5B0" stroke-width="3.5" stroke-linecap="round"/>
+        <circle cx="6" cy="38" r="2.6" fill="#F5A56C"/>
+        <circle cx="58" cy="38" r="2.6" fill="#F5A56C"/>
+      </svg>
+      <span>Créa-Kid</span>
+    </a>
+    <nav class="nav-links" aria-label="Navigation principale">
+      <a href="index.html" class="active">Accueil</a>
+      <a href="concept.html">Le concept</a>
+      <a href="tarifs.html">Tarifs</a>
+      <a href="planning.html">Planning</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <a class="btn btn-primary btn-sm nav-cta" href="contact.html">Nous trouver</a>
+    <button class="menu-btn" aria-label="Menu" onclick="document.getElementById('mnav').classList.toggle('open')">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </div>
+  <nav id="mnav" class="mobile-nav" aria-label="Menu mobile">
+    <a href="index.html" class="active">Accueil</a>
+    <a href="concept.html">Le concept</a>
+    <a href="tarifs.html">Tarifs</a>
+    <a href="planning.html">Planning</a>
+    <a href="contact.html">Contact</a>
+    <a href="mentions-legales.html">Mentions légales</a>
+  </nav>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <!-- Floating decos -->
+  <svg class="float-deco fd-1" viewBox="0 0 100 100" aria-hidden="true">
+    <!-- Sun -->
+    <circle cx="50" cy="50" r="22" fill="#F8CC7A"/>
+    <g stroke="#F8CC7A" stroke-width="5" stroke-linecap="round">
+      <line x1="50" y1="10" x2="50" y2="20"/>
+      <line x1="50" y1="80" x2="50" y2="90"/>
+      <line x1="10" y1="50" x2="20" y2="50"/>
+      <line x1="80" y1="50" x2="90" y2="50"/>
+      <line x1="22" y1="22" x2="29" y2="29"/>
+      <line x1="71" y1="71" x2="78" y2="78"/>
+      <line x1="22" y1="78" x2="29" y2="71"/>
+      <line x1="71" y1="29" x2="78" y2="22"/>
+    </g>
+  </svg>
+  <svg class="float-deco fd-2" viewBox="0 0 100 100" aria-hidden="true">
+    <!-- Flower -->
+    <g fill="#F5B5B0">
+      <ellipse cx="50" cy="25" rx="14" ry="18"/>
+      <ellipse cx="50" cy="75" rx="14" ry="18"/>
+      <ellipse cx="25" cy="50" rx="18" ry="14"/>
+      <ellipse cx="75" cy="50" rx="18" ry="14"/>
+    </g>
+    <circle cx="50" cy="50" r="11" fill="#F8CC7A"/>
+  </svg>
+  <svg class="float-deco fd-3" viewBox="0 0 100 100" aria-hidden="true">
+    <!-- Paint splat -->
+    <path d="M20 50 Q15 30 35 25 Q50 5 65 22 Q90 18 85 45 Q95 65 75 72 Q65 92 45 80 Q20 90 18 70 Q5 60 20 50Z" fill="#9FE0B7"/>
+  </svg>
+  <svg class="float-deco fd-4" viewBox="0 0 100 100" aria-hidden="true">
+    <!-- Cloud -->
+    <g fill="#F5B5B0">
+      <ellipse cx="30" cy="60" rx="20" ry="16"/>
+      <ellipse cx="55" cy="50" rx="25" ry="22"/>
+      <ellipse cx="78" cy="62" rx="18" ry="14"/>
+      <ellipse cx="50" cy="68" rx="35" ry="10"/>
+    </g>
+  </svg>
+
+  <div class="container hero-inner">
+    <img class="hero-logo" src="assets/logo-creakid.png" alt="Créa-Kid">
+    <p class="hero-tagline">Jeux libres – Café – Ateliers</p>
+    <h1 class="hero-sub">Plus qu'un espace de jeux : un lieu pour grandir ensemble.</h1>
+
+    <div class="hero-hours" role="group" aria-label="Horaires d'ouverture">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+      <strong>Mardi → Samedi</strong>
+      <span class="pipe">·</span>
+      <span>9h30-12h30</span>
+      <span class="pipe">·</span>
+      <span>14h30-18h</span>
+    </div>
+
+    <div class="hero-ctas">
+      <a class="btn btn-primary" href="contact.html">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Nous trouver
+      </a>
+      <a class="btn btn-mint" href="contact.html">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M4 4l8 8 8-8"/></svg>
+        Contact
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONCEPT ===== -->
+<section id="concept" style="background: var(--paper); border-top: 1px dashed var(--line); border-bottom: 1px dashed var(--line);">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Le concept</span>
+      <h2>Quatre univers sous le même arc-en-ciel</h2>
+      <p class="muted" style="max-width:560px; margin: 0 auto;">Un espace pensé pour les tout-petits comme pour leurs parents, où jouer, partager et se retrouver autour d'un café.</p>
+    </div>
+
+    <div class="pillars">
+      <article class="pillar p-peach">
+        <div class="pillar-icon">
+          <!-- Blocks icon -->
+          <svg width="46" height="46" viewBox="0 0 64 64" fill="none">
+            <rect x="8" y="34" width="20" height="20" rx="4" fill="#F5A56C"/>
+            <rect x="32" y="34" width="20" height="20" rx="4" fill="#E8884A"/>
+            <rect x="20" y="14" width="20" height="20" rx="4" fill="#FBD9BD" stroke="#F5A56C" stroke-width="2"/>
+            <circle cx="30" cy="24" r="2" fill="#F5A56C"/>
+          </svg>
+        </div>
+        <h3>Aire de jeux</h3>
+        <p>Jeux libres, motricité, lecture, créatifs.</p>
+        <span class="age">0 – 6 ans</span>
+      </article>
+
+      <article class="pillar p-coral">
+        <div class="pillar-icon">
+          <svg width="46" height="46" viewBox="0 0 64 64" fill="none">
+            <path d="M16 26h28v18a8 8 0 0 1-8 8H24a8 8 0 0 1-8-8V26z" fill="#F5B5B0"/>
+            <path d="M44 30h6a5 5 0 0 1 0 10h-6" stroke="#E8918B" stroke-width="3" fill="none"/>
+            <path d="M22 18c0-3 4-3 4-6" stroke="#E8918B" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+            <path d="M30 18c0-3 4-3 4-6" stroke="#E8918B" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+            <path d="M38 18c0-3 4-3 4-6" stroke="#E8918B" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3>Café chaleureux</h3>
+        <p>Boissons chaudes, fraîches et pâtisseries maison.</p>
+        <span class="age">Pour les parents</span>
+      </article>
+
+      <article class="pillar p-mint">
+        <div class="pillar-icon">
+          <svg width="46" height="46" viewBox="0 0 64 64" fill="none">
+            <!-- palette -->
+            <path d="M32 8C18 8 8 18 8 30c0 9 6 14 13 14 4 0 6-3 6-6 0-2 1-3 3-3h6c10 0 16-6 16-14C52 13 44 8 32 8z" fill="#9FE0B7"/>
+            <circle cx="20" cy="22" r="3" fill="#F5A56C"/>
+            <circle cx="32" cy="16" r="3" fill="#F8CC7A"/>
+            <circle cx="44" cy="22" r="3" fill="#F5B5B0"/>
+            <circle cx="22" cy="38" r="3" fill="#9FE0B7" stroke="#6FC68E" stroke-width="2"/>
+          </svg>
+        </div>
+        <h3>Ateliers</h3>
+        <p>Éveil musical, ateliers artistiques, bébé signe.</p>
+        <span class="age">Parents-enfants</span>
+      </article>
+
+      <article class="pillar p-gold">
+        <div class="pillar-icon">
+          <svg width="46" height="46" viewBox="0 0 64 64" fill="none">
+            <!-- gift -->
+            <rect x="10" y="26" width="44" height="28" rx="3" fill="#F8CC7A"/>
+            <rect x="10" y="26" width="44" height="6" fill="#E8B355"/>
+            <rect x="29" y="26" width="6" height="28" fill="#E8B355"/>
+            <path d="M32 26C20 26 18 14 26 14c4 0 6 4 6 12z" fill="#F5B5B0"/>
+            <path d="M32 26c12 0 14-12 6-12-4 0-6 4-6 12z" fill="#F5B5B0"/>
+          </svg>
+        </div>
+        <h3>Anniversaires</h3>
+        <p>Privatisation du lieu, espace adapté, souvenirs joyeux.</p>
+        <span class="age">3 – 8 ans</span>
+      </article>
+    </div>
+
+    <div class="text-center" style="margin-top: 36px;">
+      <a class="btn btn-ghost" href="concept.html">
+        Découvrir tous les espaces
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== GALLERY ===== -->
+<section>
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Le lieu</span>
+      <h2>Bienvenue dans notre maison</h2>
+      <p class="muted" style="max-width:540px; margin: 0 auto;">Un cocon lumineux et coloré, pensé pour que petits et grands se sentent comme à la maison.</p>
+    </div>
+
+    <div class="gallery">
+      <img src="assets/photo-aire-jeux.jpg" alt="L'aire de jeux principale avec son mur fleuri">
+      <img src="assets/photo-circuit.jpg" alt="Espace circuits et jeux de construction">
+      <img src="assets/photo-atelier.jpg" alt="L'espace atelier avec son grand tableau noir">
+      <img src="assets/photo-motricite.jpg" alt="Espace motricité avec triangle et toboggan">
+      <img src="assets/photo-lecture.jpg" alt="Coin lecture cosy et bibliothèque">
+      <div class="ph">
+        <span>📷 photo<br>du café & des pâtisseries<br><em>à venir</em></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PLANNING ===== -->
+<section style="background: var(--cream-warm); border-top: 1px dashed var(--peach); border-bottom: 1px dashed var(--peach);">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Cette semaine</span>
+      <h2>Le planning en un clin d'œil</h2>
+      <p class="muted" style="max-width:520px; margin: 0 auto;">Ouvert du mardi au samedi, avec des ateliers spéciaux tout au long de la semaine.</p>
+    </div>
+
+    <div class="week">
+      <div class="day closed"><div class="day-name">Lundi</div><div class="day-status">Fermé</div></div>
+      <div class="day"><div class="day-name">Mardi</div><div class="day-status">9h30-18h</div>
+        <div class="day-events"><span class="day-event e-mint">Bébé signe · 10h</span></div>
+      </div>
+      <div class="day"><div class="day-name">Mercredi</div><div class="day-status">9h30-18h</div>
+        <div class="day-events"><span class="day-event">Éveil musical · 10h30</span></div>
+      </div>
+      <div class="day"><div class="day-name">Jeudi</div><div class="day-status">9h30-18h</div>
+        <div class="day-events"><span class="day-event e-coral">Ass. mat. · matinée</span></div>
+      </div>
+      <div class="day"><div class="day-name">Vendredi</div><div class="day-status">9h30-18h</div>
+        <div class="day-events"><span class="day-event e-gold">Atelier peinture · 15h</span></div>
+      </div>
+      <div class="day"><div class="day-name">Samedi</div><div class="day-status">9h30-18h</div>
+        <div class="day-events"><span class="day-event e-coral">Atelier famille · 10h</span></div>
+      </div>
+      <div class="day closed"><div class="day-name">Dimanche</div><div class="day-status">Fermé</div></div>
+    </div>
+
+    <div class="text-center" style="margin-top: 32px;">
+      <a class="btn btn-mint" href="planning.html">
+        Planning détaillé
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== WELCOME ===== -->
+<section>
+  <div class="container">
+    <div class="welcome-block">
+      <span class="tag tag-peach">À bientôt !</span>
+      <h2>On a hâte de vous accueillir</h2>
+      <p style="max-width: 560px; margin: 0 auto; color: var(--ink);">
+        Une question, une envie de découvrir le lieu, un projet d'anniversaire ? Marine vous répond avec le sourire.
+      </p>
+
+      <div class="welcome-info">
+        <div class="info-pill">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <strong>Adresse</strong>
+          <span>55 Av. d'Estienne d'Orves<br>83470 St Maximin</span>
+        </div>
+        <div class="info-pill">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92V21a1 1 0 0 1-1.1 1A19 19 0 0 1 2 4.1 1 1 0 0 1 3 3h4.09a1 1 0 0 1 1 .75l1 4a1 1 0 0 1-.27 1l-2.2 2.2a16 16 0 0 0 6.4 6.4l2.2-2.2a1 1 0 0 1 1-.27l4 1a1 1 0 0 1 .78 1z"/></svg>
+          <strong>Téléphone</strong>
+          <a href="tel:0667443361">06 67 44 33 61</a>
+        </div>
+        <div class="info-pill">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
+          <strong>Email</strong>
+          <a href="mailto:marine.creakid@gmail.com">marine.creakid<br>@gmail.com</a>
+        </div>
+      </div>
+
+      <div style="margin-top: 32px;">
+        <a class="btn btn-primary" href="contact.html">Nous écrire</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <svg class="footer-brand-mark" viewBox="0 0 64 44" aria-hidden="true">
+            <path d="M6 38 A26 26 0 0 1 58 38" fill="none" stroke="#F5A56C" stroke-width="3.5" stroke-linecap="round"/>
+            <path d="M11 38 A21 21 0 0 1 53 38" fill="none" stroke="#9FE0B7" stroke-width="3.5" stroke-linecap="round"/>
+            <path d="M16 38 A16 16 0 0 1 48 38" fill="none" stroke="#F8CC7A" stroke-width="3.5" stroke-linecap="round"/>
+            <path d="M21 38 A11 11 0 0 1 43 38" fill="none" stroke="#F5B5B0" stroke-width="3.5" stroke-linecap="round"/>
+          </svg>
+          <strong>Créa-Kid</strong>
+        </div>
+        <p>Plus qu'un espace de jeux : un lieu pour grandir ensemble, à Saint-Maximin-la-Sainte-Baume.</p>
+        <div class="socials">
+          <!-- TODO: vérifier l'URL Facebook exacte avec Marine -->
+          <a class="social-pill" href="https://facebook.com/CREAKID-St-Maximin" target="_blank" rel="noopener">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M13 22v-8h3l1-4h-4V7.5C13 6.6 13.4 6 14.7 6H17V2.3C16.5 2.2 15.4 2 14 2c-2.7 0-4.5 1.6-4.5 4.5V10H6v4h3.5v8z"/></svg>
+            CREAKID-St Maximin
+          </a>
+          <a class="social-pill" href="https://instagram.com/creakid_stmaximin" target="_blank" rel="noopener">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+            creakid_stmaximin
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <h4>Le lieu</h4>
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="concept.html">Le concept</a></li>
+          <li><a href="tarifs.html">Tarifs</a></li>
+          <li><a href="planning.html">Planning</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="mentions-legales.html">Mentions légales</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Nous trouver</h4>
+        <p>55 Avenue d'Estienne d'Orves<br>83470 St Maximin la Ste Baume</p>
+        <p style="margin-top:10px;">
+          <a href="tel:0667443361">06 67 44 33 61</a><br>
+          <a href="mailto:marine.creakid@gmail.com">marine.creakid@gmail.com</a>
+        </p>
+        <p style="margin-top:10px;"><strong>Mardi → Samedi</strong><br>9h30-12h30 · 14h30-18h</p>
+      </div>
+    </div>
+
+    <div class="footer-base">
+      <span>© 2026 Créa-Kid · Tous droits réservés</span>
+      <span>Fait avec <span class="heart">♥</span> à St Maximin</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

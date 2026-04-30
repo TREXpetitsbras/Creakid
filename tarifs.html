@@ -1,0 +1,461 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Tarifs — Créa-Kid</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Tarifs Créa-Kid à Saint-Maximin : entrée dès 4,50€, bébés gratuits, cartes 5 ou 10 séances, tarif assistante maternelle et -40% sortie d'école.">
+<meta name="keywords" content="tarifs Créa-Kid, prix entrée jeux enfants, carte abonnement, tarif assistante maternelle, réduction sortie école, anniversaire privatisation, Saint-Maximin-la-Sainte-Baume">
+<meta name="author" content="Créa-Kid">
+<meta name="theme-color" content="#F5A56C">
+<link rel="icon" href="assets/logo-creakid-small.png" type="image/png">
+<!-- Open Graph -->
+<meta property="og:title" content="Tarifs — Créa-Kid Saint-Maximin">
+<meta property="og:description" content="Tarifs Créa-Kid à Saint-Maximin : entrée dès 4,50€, bébés gratuits, cartes d'abonnement 5 ou 10 séances, tarifs spéciaux assistante maternelle et sortie d'école.">
+<meta property="og:image" content="https://creakid.fr/assets/logo-creakid.png">
+<meta property="og:url" content="https://creakid.fr/tarifs.html">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="Créa-Kid">
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Tarifs — Créa-Kid Saint-Maximin">
+<meta name="twitter:description" content="Tarifs Créa-Kid à Saint-Maximin : entrée dès 4,50€, bébés gratuits, cartes d'abonnement 5 ou 10 séances, tarifs spéciaux assistante maternelle et sortie d'école.">
+<meta name="twitter:image" content="https://creakid.fr/assets/logo-creakid.png">
+<link rel="stylesheet" href="style.css">
+<style>
+  /* Entry pricing */
+  .price-grid {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: 1fr;
+    margin-top: 30px;
+  }
+  @media (min-width: 720px) { .price-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 1000px) { .price-grid { grid-template-columns: repeat(4, 1fr); } }
+
+  .price-card {
+    background: var(--paper);
+    border-radius: var(--r-lg);
+    padding: 28px 22px;
+    text-align: center;
+    border: 1px solid var(--line);
+    position: relative;
+    transition: transform 0.2s, box-shadow 0.25s;
+  }
+  .price-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-warm); }
+
+  .price-icon {
+    width: 72px; height: 72px; margin: 0 auto 14px;
+    border-radius: 50%;
+    display: grid; place-items: center;
+  }
+  .price-card.pc-peach .price-icon { background: var(--peach-soft); color: var(--peach-deep); }
+  .price-card.pc-coral .price-icon { background: var(--coral-soft); color: var(--coral-deep); }
+  .price-card.pc-mint  .price-icon { background: var(--mint-soft);  color: var(--mint-deep); }
+  .price-card.pc-gold  .price-icon { background: var(--gold-soft);  color: var(--gold-deep); }
+
+  .price-card h3 { font-size: 1.05rem; margin: 0 0 4px; }
+  .price-card .age { color: var(--ink-mute); font-size: 0.88rem; margin-bottom: 14px; }
+  .price-card .amount {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 2.4rem;
+    color: var(--ink);
+    line-height: 1;
+  }
+  .price-card .amount .free { color: var(--mint-deep); }
+  .price-card .euro { font-size: 1.4rem; color: var(--ink-soft); }
+
+  /* ===== Subscription cards ===== */
+  .subs {
+    display: grid;
+    gap: 22px;
+    grid-template-columns: 1fr;
+    margin-top: 32px;
+  }
+  @media (min-width: 880px) { .subs { grid-template-columns: 1fr 1fr; } }
+
+  .sub-card {
+    background: var(--paper);
+    border-radius: var(--r-lg);
+    padding: 32px;
+    border: 1px solid var(--line);
+    position: relative;
+    overflow: hidden;
+  }
+  .sub-card.featured {
+    border: 2px solid var(--peach);
+    box-shadow: 0 12px 30px rgba(232,136,74,0.15);
+  }
+  .sub-card .sub-badge {
+    position: absolute;
+    top: 18px; right: 18px;
+    background: var(--peach);
+    color: white;
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 0.8rem;
+  }
+  .sub-card h3 {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    margin: 0 0 4px;
+  }
+  .sub-card .duration {
+    font-family: var(--font-script);
+    color: var(--peach-deep);
+    font-size: 1.3rem;
+    margin-bottom: 22px;
+    display: block;
+  }
+
+  .sub-rows {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 22px;
+  }
+  .sub-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 16px;
+    background: var(--cream);
+    border-radius: var(--r-md);
+  }
+  .sub-row .label { font-weight: 600; }
+  .sub-row .label .lbl-mini { display: block; color: var(--ink-mute); font-size: 0.78rem; font-weight: 500; }
+  .sub-row .pricing { text-align: right; line-height: 1.2; }
+  .sub-row .strike {
+    color: var(--ink-mute);
+    text-decoration: line-through;
+    font-size: 0.85rem;
+  }
+  .sub-row .new-price {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: var(--peach-deep);
+  }
+
+  .savings-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    background: var(--mint-soft);
+    color: var(--mint-deep);
+    border-radius: 999px;
+    font-family: var(--font-script);
+    font-weight: 700;
+    font-size: 1.15rem;
+  }
+
+  /* ===== Special tariffs ===== */
+  .specials {
+    display: grid;
+    gap: 22px;
+    grid-template-columns: 1fr;
+    margin-top: 30px;
+  }
+  @media (min-width: 880px) { .specials { grid-template-columns: 1fr 1fr; } }
+
+  .special {
+    padding: 32px;
+    border-radius: var(--r-lg);
+    background: linear-gradient(135deg, var(--mint-soft), white);
+    border: 1px dashed var(--mint-deep);
+    position: relative;
+  }
+  .special.peach {
+    background: linear-gradient(135deg, var(--peach-soft), white);
+    border-color: var(--peach);
+  }
+  .special h3 { font-size: 1.4rem; margin: 0 0 6px; }
+  .special .price-line {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 2rem;
+    color: var(--ink);
+    margin: 14px 0 8px;
+  }
+  .special .price-line .small { font-size: 1rem; color: var(--ink-soft); font-weight: 500; }
+  .special .days {
+    margin-top: 14px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .special .day-pill {
+    padding: 5px 12px;
+    background: white;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--ink);
+    border: 1px solid var(--line);
+  }
+  .special small { color: var(--ink-mute); display: block; margin-top: 12px; font-size: 0.85rem; }
+
+  /* Note callout */
+  .note {
+    margin-top: 36px;
+    padding: 22px 26px;
+    background: var(--paper);
+    border-radius: var(--r-md);
+    border-left: 4px solid var(--gold);
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+  .note svg { flex-shrink: 0; color: var(--gold-deep); }
+  .note p { margin: 0; color: var(--ink-soft); }
+</style>
+</head>
+<body>
+
+<!-- ===== TOPBAR ===== -->
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="index.html"><svg class="brand-mark" viewBox="0 0 64 44"><path d="M6 38 A26 26 0 0 1 58 38" fill="none" stroke="#F5A56C" stroke-width="3.5" stroke-linecap="round"/><path d="M11 38 A21 21 0 0 1 53 38" fill="none" stroke="#9FE0B7" stroke-width="3.5" stroke-linecap="round"/><path d="M16 38 A16 16 0 0 1 48 38" fill="none" stroke="#F8CC7A" stroke-width="3.5" stroke-linecap="round"/><path d="M21 38 A11 11 0 0 1 43 38" fill="none" stroke="#F5B5B0" stroke-width="3.5" stroke-linecap="round"/><circle cx="6" cy="38" r="2.6" fill="#F5A56C"/><circle cx="58" cy="38" r="2.6" fill="#F5A56C"/></svg><span>Créa-Kid</span></a>
+    <nav class="nav-links">
+      <a href="index.html">Accueil</a>
+      <a href="concept.html">Le concept</a>
+      <a href="tarifs.html" class="active">Tarifs</a>
+      <a href="planning.html">Planning</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <a class="btn btn-primary btn-sm nav-cta" href="contact.html">Nous trouver</a>
+    <button class="menu-btn" aria-label="Menu" onclick="document.getElementById('mnav').classList.toggle('open')"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+  </div>
+  <nav id="mnav" class="mobile-nav">
+    <a href="index.html">Accueil</a>
+    <a href="concept.html">Le concept</a>
+    <a href="tarifs.html" class="active">Tarifs</a>
+    <a href="planning.html">Planning</a>
+    <a href="contact.html">Contact</a>
+    <a href="mentions-legales.html">Mentions légales</a>
+  </nav>
+</header>
+
+<!-- ===== PAGE HEAD ===== -->
+<div class="page-hero">
+  <div class="container">
+    <span class="eyebrow">Tarifs</span>
+    <h1>Des prix doux, pour des moments précieux</h1>
+    <p class="subtitle">Une tarification simple par tranche d'âge, et plein de petits avantages pour les habitués.</p>
+  </div>
+</div>
+
+<!-- ===== ENTRY PRICING ===== -->
+<section style="padding-top: 0;">
+  <div class="container">
+    <div class="section-head">
+      <h2>Tarifs d'entrée à l'aire de jeux</h2>
+      <p class="muted">Une entrée donne accès à toute l'aire de jeux pendant la séance.</p>
+    </div>
+
+    <div class="price-grid">
+      <article class="price-card pc-mint">
+        <div class="price-icon">
+          <svg width="38" height="38" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c-3 0-5 2-5 5 0 2 1 4 3 5l-1 4c0 2 1 6 3 6s3-4 3-6l-1-4c2-1 3-3 3-5 0-3-2-5-5-5z"/></svg>
+        </div>
+        <h3>Bébés</h3>
+        <p class="age">Moins de 6 mois</p>
+        <div class="amount"><span class="free">Gratuit</span></div>
+      </article>
+
+      <article class="price-card pc-peach">
+        <div class="price-icon">
+          <svg width="38" height="38" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="7" r="4"/><path d="M5 22a7 7 0 0 1 14 0z"/></svg>
+        </div>
+        <h3>Tout-petits</h3>
+        <p class="age">6 à 23 mois</p>
+        <div class="amount">4,50<span class="euro">€</span></div>
+      </article>
+
+      <article class="price-card pc-coral">
+        <div class="price-icon">
+          <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="6" r="3"/><path d="M9 22V13l-3-3 3-3M15 22V13l3-3-3-3"/><path d="M9 13h6"/></svg>
+        </div>
+        <h3>Enfants</h3>
+        <p class="age">2 à 6 ans</p>
+        <div class="amount">9,50<span class="euro">€</span></div>
+      </article>
+
+      <article class="price-card pc-gold">
+        <div class="price-icon">
+          <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="6" r="3"/><circle cx="17" cy="8" r="2.5"/><path d="M3 22a6 6 0 0 1 12 0M14 22a4 4 0 0 1 8 0"/></svg>
+        </div>
+        <h3>Adulte accompagnant</h3>
+        <p class="age">et enfant +7 ans</p>
+        <div class="amount">3,50<span class="euro">€</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SUBSCRIPTIONS ===== -->
+<section style="background: var(--paper); border-top: 1px dashed var(--line); border-bottom: 1px dashed var(--line);">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Cartes d'abonnement</span>
+      <h2>Pour les habitués, des prix encore plus doux</h2>
+      <p class="muted" style="max-width: 540px; margin: 0 auto;">Plus on vient, plus on en profite : nos cartes 5 et 10 entrées vous font économiser à chaque visite.</p>
+    </div>
+
+    <div class="subs">
+      <article class="sub-card">
+        <h3>Carte 5 entrées</h3>
+        <span class="duration">valable 3 mois</span>
+
+        <div class="sub-rows">
+          <div class="sub-row">
+            <div class="label">Adulte <span class="lbl-mini">et enfant +7 ans</span></div>
+            <div class="pricing">
+              <div class="strike">17,50 €</div>
+              <div class="new-price">16 €</div>
+            </div>
+          </div>
+          <div class="sub-row">
+            <div class="label">Bébé <span class="lbl-mini">6-23 mois</span></div>
+            <div class="pricing">
+              <div class="strike">22,50 €</div>
+              <div class="new-price">20 €</div>
+            </div>
+          </div>
+          <div class="sub-row">
+            <div class="label">Enfant <span class="lbl-mini">2-6 ans</span></div>
+            <div class="pricing">
+              <div class="strike">47,50 €</div>
+              <div class="new-price">42 €</div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="sub-card featured">
+        <span class="sub-badge">Meilleur prix</span>
+        <h3>Carte 10 entrées</h3>
+        <span class="duration">valable 6 mois</span>
+
+        <div class="sub-rows">
+          <div class="sub-row">
+            <div class="label">Adulte <span class="lbl-mini">et enfant +7 ans</span></div>
+            <div class="pricing">
+              <div class="strike">35 €</div>
+              <div class="new-price">30 €</div>
+            </div>
+          </div>
+          <div class="sub-row">
+            <div class="label">Bébé <span class="lbl-mini">6-23 mois</span></div>
+            <div class="pricing">
+              <div class="strike">45 €</div>
+              <div class="new-price">38 €</div>
+            </div>
+          </div>
+          <div class="sub-row">
+            <div class="label">Enfant <span class="lbl-mini">2-6 ans</span></div>
+            <div class="pricing">
+              <div class="strike">95 €</div>
+              <div class="new-price">80 €</div>
+            </div>
+          </div>
+        </div>
+
+        <span class="savings-tag">jusqu'à 15€ d'économie !</span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SPECIAL TARIFFS ===== -->
+<section>
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Tarifs spéciaux</span>
+      <h2>Pensés pour les pros et pour les écoliers</h2>
+    </div>
+
+    <div class="specials">
+      <article class="special">
+        <span class="tag tag-mint">Pro</span>
+        <h3 style="margin-top:10px;">Tarif Assistante Maternelle</h3>
+        <p class="muted">Tarif unique par enfant, gratuit pour l'ass. mat. sur présentation de l'agrément.</p>
+        <div class="price-line">6,50<span class="small">€ / enfant (6 mois - 3 ans)</span></div>
+        <div class="days">
+          <span class="day-pill">Mardi</span>
+          <span class="day-pill">Jeudi</span>
+          <span class="day-pill">Vendredi</span>
+        </div>
+        <small>Gratuit pour l'assistante maternelle accompagnante.</small>
+      </article>
+
+      <article class="special peach">
+        <span class="tag tag-peach">Famille</span>
+        <h3 style="margin-top:10px;">Sortie d'école</h3>
+        <p class="muted">À partir de 16h45, on accueille les écoliers avec une belle réduction.</p>
+        <div class="price-line">-40<span class="small">% sur toutes les entrées</span></div>
+        <div class="days">
+          <span class="day-pill">Mardi</span>
+          <span class="day-pill">Jeudi</span>
+          <span class="day-pill">Vendredi</span>
+        </div>
+        <small>* Non valable en période de vacances scolaires.</small>
+      </article>
+    </div>
+
+    <div class="note">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+      <p>Bon à savoir — les paiements se font sur place (espèces ou CB). Pour les anniversaires et privatisations, contactez-nous pour un devis personnalisé : <a href="mailto:marine.creakid@gmail.com">marine.creakid@gmail.com</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <svg class="footer-brand-mark" viewBox="0 0 64 44"><path d="M6 38 A26 26 0 0 1 58 38" fill="none" stroke="#F5A56C" stroke-width="3.5" stroke-linecap="round"/><path d="M11 38 A21 21 0 0 1 53 38" fill="none" stroke="#9FE0B7" stroke-width="3.5" stroke-linecap="round"/><path d="M16 38 A16 16 0 0 1 48 38" fill="none" stroke="#F8CC7A" stroke-width="3.5" stroke-linecap="round"/><path d="M21 38 A11 11 0 0 1 43 38" fill="none" stroke="#F5B5B0" stroke-width="3.5" stroke-linecap="round"/></svg>
+          <strong>Créa-Kid</strong>
+        </div>
+        <p>Plus qu'un espace de jeux : un lieu pour grandir ensemble, à Saint-Maximin-la-Sainte-Baume.</p>
+        <div class="socials">
+          <!-- TODO: vérifier l'URL Facebook exacte avec Marine -->
+          <a class="social-pill" href="https://facebook.com/CREAKID-St-Maximin" target="_blank" rel="noopener">CREAKID-St Maximin</a>
+          <a class="social-pill" href="https://instagram.com/creakid_stmaximin" target="_blank" rel="noopener">creakid_stmaximin</a>
+        </div>
+      </div>
+      <div>
+        <h4>Le lieu</h4>
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="concept.html">Le concept</a></li>
+          <li><a href="tarifs.html">Tarifs</a></li>
+          <li><a href="planning.html">Planning</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="mentions-legales.html">Mentions légales</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Nous trouver</h4>
+        <p>55 Avenue d'Estienne d'Orves<br>83470 St Maximin la Ste Baume</p>
+        <p style="margin-top:10px;"><a href="tel:0667443361">06 67 44 33 61</a><br><a href="mailto:marine.creakid@gmail.com">marine.creakid@gmail.com</a></p>
+        <p style="margin-top:10px;"><strong>Mardi → Samedi</strong><br>9h30-12h30 · 14h30-18h</p>
+      </div>
+    </div>
+    <div class="footer-base">
+      <span>© 2026 Créa-Kid · Tous droits réservés</span>
+      <span>Fait avec ♥ à St Maximin</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

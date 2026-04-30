@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Le concept — Créa-Kid</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Découvrez les 4 univers de Créa-Kid à Saint-Maximin : aire de jeux 0-6 ans, café chaleureux, ateliers parents-enfants (éveil musical, bébé signe, arts) et espace anniversaires.">
+<meta name="keywords" content="concept Créa-Kid, aire de jeux 0-6 ans, motricité enfants, éveil musical, bébé signe, ateliers artistiques, anniversaires enfants, Saint-Maximin-la-Sainte-Baume">
+<meta name="author" content="Créa-Kid">
+<meta name="theme-color" content="#F5A56C">
+<link rel="icon" href="assets/logo-creakid-small.png" type="image/png">
+<!-- Open Graph -->
+<meta property="og:title" content="Le concept — Créa-Kid à Saint-Maximin">
+<meta property="og:description" content="Découvrez les 4 univers de Créa-Kid : aire de jeux 0-6 ans, café chaleureux, ateliers parents-enfants et espace anniversaires à Saint-Maximin-la-Sainte-Baume.">
+<meta property="og:image" content="https://creakid.fr/assets/logo-creakid.png">
+<meta property="og:url" content="https://creakid.fr/concept.html">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="Créa-Kid">
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Le concept — Créa-Kid à Saint-Maximin">
+<meta name="twitter:description" content="Découvrez les 4 univers de Créa-Kid : aire de jeux 0-6 ans, café chaleureux, ateliers parents-enfants et espace anniversaires à Saint-Maximin-la-Sainte-Baume.">
+<meta name="twitter:image" content="https://creakid.fr/assets/logo-creakid.png">
+<link rel="stylesheet" href="style.css">
+<style>
+  .space-section {
+    padding-block: clamp(48px, 7vw, 84px);
+  }
+  .space-section + .space-section { border-top: 1px dashed var(--line); }
+
+  .space {
+    display: grid;
+    gap: 32px;
+    grid-template-columns: 1fr;
+    align-items: center;
+  }
+  @media (min-width: 880px) {
+    .space { grid-template-columns: 1.05fr 1fr; gap: 56px; }
+    .space.reverse > :first-child { order: 2; }
+  }
+
+  .space-visual {
+    border-radius: var(--r-lg);
+    overflow: hidden;
+    aspect-ratio: 4/3;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--line);
+  }
+  .space-visual img { width:100%; height:100%; object-fit: cover; }
+
+  .space-body .eyebrow { margin-bottom: 8px; }
+  .space-body h2 { font-size: clamp(1.8rem, 4.5vw, 2.4rem); margin-bottom: 14px; }
+  .space-body .lead { color: var(--ink-soft); font-size: 1.05rem; margin-bottom: 22px; }
+
+  .chip-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    border-radius: 999px;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--ink);
+  }
+  .chip .dot { width: 10px; height: 10px; border-radius: 50%; }
+
+  /* Color variants for sections */
+  .bg-peach { background: linear-gradient(180deg, var(--peach-soft) 0%, transparent 100%); }
+  .bg-coral { background: linear-gradient(180deg, var(--coral-soft) 0%, transparent 100%); }
+  .bg-mint  { background: linear-gradient(180deg, var(--mint-soft) 0%, transparent 100%); }
+  .bg-gold  { background: linear-gradient(180deg, var(--gold-soft) 0%, transparent 100%); }
+
+  /* ===== Rules ===== */
+  .rules-section {
+    background: var(--paper);
+    padding: clamp(48px, 7vw, 84px) 0;
+    border-top: 1px dashed var(--line);
+  }
+  .rules-grid {
+    display: grid;
+    gap: 18px;
+    grid-template-columns: 1fr;
+    margin-top: 36px;
+  }
+  @media (min-width: 720px) { .rules-grid { grid-template-columns: 1fr 1fr; } }
+
+  .rule {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    padding: 22px;
+    border-radius: var(--r-lg);
+    background: var(--cream);
+    border: 1px dashed var(--peach);
+  }
+  .rule-num {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--peach);
+    color: white;
+    display: grid;
+    place-items: center;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.3rem;
+  }
+  .rule:nth-child(2) .rule-num { background: var(--mint-deep); }
+  .rule:nth-child(3) .rule-num { background: var(--coral-deep); }
+  .rule:nth-child(4) .rule-num { background: var(--gold-deep); }
+  .rule h3 { font-size: 1.05rem; margin: 4px 0 4px; }
+  .rule p { margin: 0; color: var(--ink-soft); font-size: 0.95rem; }
+
+  /* Extras strip */
+  .extras {
+    display: grid;
+    gap: 14px;
+    grid-template-columns: 1fr;
+    margin-top: 26px;
+  }
+  @media (min-width: 720px) { .extras { grid-template-columns: 1fr 1fr; } }
+  .extra-item {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    padding: 14px 18px;
+    background: var(--paper);
+    border-radius: var(--r-md);
+    border: 1px solid var(--line);
+  }
+  .extra-icon {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: var(--coral-soft); color: var(--coral-deep);
+    display: grid; place-items: center; flex-shrink: 0;
+  }
+
+  .ph-square { aspect-ratio: 4/3; }
+</style>
+</head>
+<body>
+
+<!-- ===== TOPBAR ===== -->
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="index.html" aria-label="Créa-Kid — Accueil">
+      <svg class="brand-mark" viewBox="0 0 64 44" aria-hidden="true">
+        <path d="M6 38 A26 26 0 0 1 58 38" fill="none" stroke="#F5A56C" stroke-width="3.5" stroke-linecap="round"/>
+        <path d="M11 38 A21 21 0 0 1 53 38" fill="none" stroke="#9FE0B7" stroke-width="3.5" stroke-linecap="round"/>
+        <path d="M16 38 A16 16 0 0 1 48 38" fill="none" stroke="#F8CC7A" stroke-width="3.5" stroke-linecap="round"/>
+        <path d="M21 38 A11 11 0 0 1 43 38" fill="none" stroke="#F5B5B0" stroke-width="3.5" stroke-linecap="round"/>
+        <circle cx="6" cy="38" r="2.6" fill="#F5A56C"/>
+        <circle cx="58" cy="38" r="2.6" fill="#F5A56C"/>
+      </svg>
+      <span>Créa-Kid</span>
+    </a>
+    <nav class="nav-links" aria-label="Navigation principale">
+      <a href="index.html">Accueil</a>
+      <a href="concept.html" class="active">Le concept</a>
+      <a href="tarifs.html">Tarifs</a>
+      <a href="planning.html">Planning</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <a class="btn btn-primary btn-sm nav-cta" href="contact.html">Nous trouver</a>
+    <button class="menu-btn" aria-label="Menu" onclick="document.getElementById('mnav').classList.toggle('open')">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </div>
+  <nav id="mnav" class="mobile-nav" aria-label="Menu mobile">
+    <a href="index.html">Accueil</a>
+    <a href="concept.html" class="active">Le concept</a>
+    <a href="tarifs.html">Tarifs</a>
+    <a href="planning.html">Planning</a>
+    <a href="contact.html">Contact</a>
+    <a href="mentions-legales.html">Mentions légales</a>
+  </nav>
+</header>
+
+<!-- ===== PAGE HEAD ===== -->
+<div class="page-hero">
+  <div class="container">
+    <span class="eyebrow">Le concept</span>
+    <h1>Quatre univers, une même envie : grandir ensemble</h1>
+    <p class="subtitle">Chez Créa-Kid, chaque espace a été pensé avec soin pour que petits et grands trouvent leur place.</p>
+  </div>
+</div>
+
+<!-- ===== AIRE DE JEUX ===== -->
+<section class="space-section bg-peach">
+  <div class="container">
+    <div class="space">
+      <div class="space-visual">
+        <img src="assets/photo-aire-jeux.jpg" alt="Aire de jeux Créa-Kid">
+      </div>
+      <div class="space-body">
+        <span class="tag tag-peach">01 · Aire de jeux</span>
+        <h2 style="margin-top:12px;">Un terrain de jeu pensé pour les 0-6 ans</h2>
+        <p class="lead">Un espace de jeux libres, sécurisé et adapté à chaque âge — toujours accompagné d'un adulte (parent, grand-parent, assistante maternelle…).</p>
+        <div class="chip-grid">
+          <span class="chip"><span class="dot" style="background:var(--peach)"></span> Jeux d'imitation</span>
+          <span class="chip"><span class="dot" style="background:var(--coral)"></span> Construction</span>
+          <span class="chip"><span class="dot" style="background:var(--mint)"></span> Jeux de société</span>
+          <span class="chip"><span class="dot" style="background:var(--gold)"></span> Jeux créatifs</span>
+          <span class="chip"><span class="dot" style="background:var(--peach)"></span> Motricité</span>
+          <span class="chip"><span class="dot" style="background:var(--coral)"></span> Coin lecture</span>
+          <span class="chip"><span class="dot" style="background:var(--mint)"></span> Espace bébé</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CAFÉ ===== -->
+<section class="space-section bg-coral">
+  <div class="container">
+    <div class="space reverse">
+      <div class="space-visual ph">
+        <span>📷 photo<br>du coin café & pâtisseries</span>
+      </div>
+      <div class="space-body">
+        <span class="tag">02 · Café</span>
+        <h2 style="margin-top:12px;">Un café chaleureux pour souffler un peu</h2>
+        <p class="lead">Pendant que les kids s'amusent, on vous régale : boissons chaudes, fraîches et pâtisseries faites maison. L'endroit parfait pour retrouver des amis ou souffler entre deux jeux.</p>
+        <div class="chip-grid">
+          <span class="chip">☕ Boissons chaudes</span>
+          <span class="chip">🥤 Boissons fraîches</span>
+          <span class="chip">🧁 Pâtisseries maison</span>
+          <span class="chip">🍪 Goûters enfants</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ATELIERS ===== -->
+<section class="space-section bg-mint">
+  <div class="container">
+    <div class="space">
+      <div class="space-visual">
+        <img src="assets/photo-atelier.jpg" alt="Espace atelier avec grand tableau noir">
+      </div>
+      <div class="space-body">
+        <span class="tag tag-mint">03 · Ateliers</span>
+        <h2 style="margin-top:12px;">Des ateliers pour créer et partager</h2>
+        <p class="lead">Animés par des pros, nos ateliers parents-enfants sont autant d'occasions de rire, d'apprendre et de fabriquer de jolis souvenirs.</p>
+        <div class="chip-grid">
+          <span class="chip"><span class="dot" style="background:var(--mint)"></span> Éveil musical</span>
+          <span class="chip"><span class="dot" style="background:var(--coral)"></span> Ateliers artistiques</span>
+          <span class="chip"><span class="dot" style="background:var(--gold)"></span> Bébé signe</span>
+          <span class="chip"><span class="dot" style="background:var(--peach)"></span> Et plein d'autres surprises…</span>
+        </div>
+        <div style="margin-top: 22px;">
+          <a class="btn btn-mint btn-sm" href="planning.html">Voir le planning</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ANNIVERSAIRES ===== -->
+<section class="space-section bg-gold">
+  <div class="container">
+    <div class="space reverse">
+      <div class="space-visual ph">
+        <span>🎂 photo<br>d'un anniversaire chez Créa-Kid</span>
+      </div>
+      <div class="space-body">
+        <span class="tag tag-gold">04 · Anniversaires</span>
+        <h2 style="margin-top:12px;">Une fête sur-mesure, sans le stress</h2>
+        <p class="lead">Privatisez le lieu pour célébrer l'anniversaire de votre enfant entre copains : un espace adapté, sécurisé, et toute la magie de Créa-Kid rien que pour vous.</p>
+        <div class="extras">
+          <div class="extra-item">
+            <div class="extra-icon" style="background:var(--gold-soft); color:var(--gold-deep);">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l1.5 4 4 .5-3 3 .8 4.4L12 12l-3.3 1.9.8-4.4-3-3 4-.5z"/></svg>
+            </div>
+            <span><strong>Privatisation</strong><br><span class="muted" style="font-size:0.9rem;">Le lieu rien que pour vous</span></span>
+          </div>
+          <div class="extra-item">
+            <div class="extra-icon" style="background:var(--peach-soft); color:var(--peach-deep);">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M3 12l3-9h12l3 9M3 12v9h18v-9M3 12h18"/></svg>
+            </div>
+            <span><strong>Espace adapté</strong><br><span class="muted" style="font-size:0.9rem;">Sécurisé pour les tout-petits</span></span>
+          </div>
+          <div class="extra-item">
+            <div class="extra-icon" style="background:var(--coral-soft); color:var(--coral-deep);">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.5-7 10-7 10z"/></svg>
+            </div>
+            <span><strong>Lieu chaleureux</strong><br><span class="muted" style="font-size:0.9rem;">Bienveillant et joyeux</span></span>
+          </div>
+          <div class="extra-item">
+            <div class="extra-icon" style="background:var(--mint-soft); color:var(--mint-deep);">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            </div>
+            <span><strong>Sur demande</strong><br><span class="muted" style="font-size:0.9rem;">Contactez-nous pour un devis</span></span>
+          </div>
+        </div>
+        <div style="margin-top: 26px;">
+          <a class="btn btn-primary btn-sm" href="contact.html">Réserver une fête</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== RULES ===== -->
+<section class="rules-section">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Les règles de la maison</span>
+      <h2>Quatre petites règles pour bien vivre ensemble</h2>
+      <p class="muted" style="max-width:540px; margin: 0 auto;">Pour que tout le monde passe un moment chouette en toute tranquillité.</p>
+    </div>
+
+    <div class="rules-grid">
+      <div class="rule">
+        <div class="rule-num">1</div>
+        <div>
+          <h3>Je me déchausse en entrant</h3>
+          <p>Pour préserver les espaces de jeux et le confort des petits pieds.</p>
+        </div>
+      </div>
+      <div class="rule">
+        <div class="rule-num">2</div>
+        <div>
+          <h3>Je respecte les autres et le matériel</h3>
+          <p>Avec gentillesse, on partage, on prend soin des jouets et des copains.</p>
+        </div>
+      </div>
+      <div class="rule">
+        <div class="rule-num">3</div>
+        <div>
+          <h3>Je mange seulement dans l'espace prévu</h3>
+          <p>L'espace café est dédié aux gourmandises pour garder l'aire de jeux propre.</p>
+        </div>
+      </div>
+      <div class="rule">
+        <div class="rule-num">4</div>
+        <div>
+          <h3>Je range mon activité avant d'en commencer une autre</h3>
+          <p>Un petit geste qui change tout pour le copain qui voudra y jouer après.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <svg class="footer-brand-mark" viewBox="0 0 64 44" aria-hidden="true">
+            <path d="M6 38 A26 26 0 0 1 58 38" fill="none" stroke="#F5A56C" stroke-width="3.5" stroke-linecap="round"/>
+            <path d="M11 38 A21 21 0 0 1 53 38" fill="none" stroke="#9FE0B7" stroke-width="3.5" stroke-linecap="round"/>
+            <path d="M16 38 A16 16 0 0 1 48 38" fill="none" stroke="#F8CC7A" stroke-width="3.5" stroke-linecap="round"/>
+            <path d="M21 38 A11 11 0 0 1 43 38" fill="none" stroke="#F5B5B0" stroke-width="3.5" stroke-linecap="round"/>
+          </svg>
+          <strong>Créa-Kid</strong>
+        </div>
+        <p>Plus qu'un espace de jeux : un lieu pour grandir ensemble, à Saint-Maximin-la-Sainte-Baume.</p>
+        <div class="socials">
+          <!-- TODO: vérifier l'URL Facebook exacte avec Marine -->
+          <a class="social-pill" href="https://facebook.com/CREAKID-St-Maximin" target="_blank" rel="noopener">CREAKID-St Maximin</a>
+          <a class="social-pill" href="https://instagram.com/creakid_stmaximin" target="_blank" rel="noopener">creakid_stmaximin</a>
+        </div>
+      </div>
+      <div>
+        <h4>Le lieu</h4>
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="concept.html">Le concept</a></li>
+          <li><a href="tarifs.html">Tarifs</a></li>
+          <li><a href="planning.html">Planning</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="mentions-legales.html">Mentions légales</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Nous trouver</h4>
+        <p>55 Avenue d'Estienne d'Orves<br>83470 St Maximin la Ste Baume</p>
+        <p style="margin-top:10px;"><a href="tel:0667443361">06 67 44 33 61</a><br><a href="mailto:marine.creakid@gmail.com">marine.creakid@gmail.com</a></p>
+        <p style="margin-top:10px;"><strong>Mardi → Samedi</strong><br>9h30-12h30 · 14h30-18h</p>
+      </div>
+    </div>
+    <div class="footer-base">
+      <span>© 2026 Créa-Kid · Tous droits réservés</span>
+      <span>Fait avec ♥ à St Maximin</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
