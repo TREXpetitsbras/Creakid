@@ -22,6 +22,8 @@
 <meta name="twitter:title" content="Planning des ateliers — Créa-Kid Saint-Maximin">
 <meta name="twitter:description" content="Retrouvez le planning hebdomadaire des ateliers Créa-Kid et le calendrier mensuel des événements spéciaux à Saint-Maximin-la-Sainte-Baume.">
 <meta name="twitter:image" content="https://creakid.fr/assets/logo-creakid.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="style.css">
 <style>
   .embed-block {
@@ -151,6 +153,8 @@
   </nav>
 </header>
 
+<main>
+
 <div class="page-hero">
   <div class="container">
     <span class="eyebrow">Planning</span>
@@ -171,14 +175,20 @@
         <a class="btn btn-mint btn-sm" href="https://www.canva.com" target="_blank" rel="noopener">Voir en grand</a>
       </div>
 
+      <!-- TODO: remplacer ce bloc par l'iframe Canva une fois le planning publié
+           <iframe src="https://www.canva.com/[ID-DESIGN]/view?embed" allowfullscreen
+                   style="width:100%;aspect-ratio:16/10;border:none;"
+                   title="Planning de la semaine Créa-Kid"></iframe>
+      -->
       <div class="embed-area weekly">
         <div class="embed-placeholder">
           <div class="ico">
-            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 10h18M8 2v4M16 2v4"/></svg>
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 10h18M8 2v4M16 2v4"/></svg>
           </div>
-          <h3>Planning Canva</h3>
-          <p>Cette zone accueille l'iframe Canva du planning hebdomadaire.</p>
-          <code>&lt;iframe src="https://www.canva.com/.../view?embed"&gt;</code>
+          <h3>Le planning arrive très vite !</h3>
+          <p>Contactez Marine pour connaître les ateliers et événements du moment.</p>
+          <p style="margin-top:10px;"><a href="tel:0667443361" style="color:var(--peach-deep); font-weight:700;">06 67 44 33 61</a></p>
+          <a href="contact.html" class="btn btn-primary btn-sm" style="margin-top:16px;">Nous contacter</a>
         </div>
       </div>
 
@@ -210,14 +220,19 @@
         <a class="btn btn-ghost btn-sm" href="https://calendar.google.com" target="_blank" rel="noopener">Ajouter à mon agenda</a>
       </div>
 
+      <!-- TODO: remplacer ce bloc par l'iframe Google Calendar une fois le calendrier publié
+           <iframe src="https://calendar.google.com/calendar/embed?src=..." width="100%"
+                   style="aspect-ratio:16/9;border:none;"
+                   title="Calendrier des événements Créa-Kid"></iframe>
+      -->
       <div class="embed-area calendar">
         <div class="embed-placeholder">
           <div class="ico" style="background: var(--mint-soft); color: var(--mint-deep);">
-            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 10h18"/><circle cx="8" cy="14" r="1.5" fill="currentColor"/><circle cx="14" cy="14" r="1.5" fill="currentColor"/><circle cx="8" cy="18" r="1.5" fill="currentColor"/></svg>
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 10h18"/><circle cx="8" cy="14" r="1.5" fill="currentColor"/><circle cx="14" cy="14" r="1.5" fill="currentColor"/><circle cx="8" cy="18" r="1.5" fill="currentColor"/></svg>
           </div>
-          <h3>Google Calendar</h3>
-          <p>Cette zone accueille l'iframe Google Agenda des événements à venir.</p>
-          <code>&lt;iframe src="https://calendar.google.com/.../embed"&gt;</code>
+          <h3>Événements spéciaux à venir</h3>
+          <p>Anniversaires privés, journées thématiques et fermetures exceptionnelles seront affichés ici très bientôt.</p>
+          <p style="margin-top:10px;">Pour être informé en avant-première, <a href="contact.html" style="color:var(--mint-deep); font-weight:600;">contactez-nous</a> ou suivez-nous sur les réseaux !</p>
         </div>
       </div>
     </div>
@@ -233,6 +248,8 @@
   </div>
 </section>
 
+</main>
+
 <footer class="site-footer">
   <div class="container">
     <div class="footer-grid">
@@ -244,8 +261,8 @@
         <p>Plus qu'un espace de jeux : un lieu pour grandir ensemble, à Saint-Maximin-la-Sainte-Baume.</p>
         <div class="socials">
           <!-- TODO: vérifier l'URL Facebook exacte avec Marine -->
-          <a class="social-pill" href="https://facebook.com/CREAKID-St-Maximin" target="_blank" rel="noopener">CREAKID-St Maximin</a>
-          <a class="social-pill" href="https://instagram.com/creakid_stmaximin" target="_blank" rel="noopener">creakid_stmaximin</a>
+          <a class="social-pill" href="https://facebook.com/CREAKID-St-Maximin" target="_blank" rel="noopener" aria-label="Retrouvez-nous sur Facebook (nouvelle fenêtre)">CREAKID-St Maximin</a>
+          <a class="social-pill" href="https://instagram.com/creakid_stmaximin" target="_blank" rel="noopener" aria-label="Retrouvez-nous sur Instagram (nouvelle fenêtre)">creakid_stmaximin</a>
         </div>
       </div>
       <div>
