@@ -168,6 +168,11 @@ section { padding-block: clamp(48px, 8vw, 96px); }
   display: none;
 }
 
+/* Tablette : bouton CTA visible, poussé à droite beside le hamburger */
+@media (min-width: 768px) {
+  .nav-cta { display: inline-flex; margin-left: auto; }
+}
+
 .menu-btn {
   display: inline-flex;
   align-items: center;
@@ -184,7 +189,7 @@ section { padding-block: clamp(48px, 8vw, 96px); }
 @media (min-width: 860px) {
   .nav-links { display: flex; }
   .menu-btn { display: none; }
-  .nav-cta { display: inline-flex; }
+  .nav-cta { margin-left: 0; }
 }
 
 /* Mobile drawer */
