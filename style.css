@@ -461,3 +461,100 @@ section { padding-block: clamp(48px, 8vw, 96px); }
   display: inline-block;
   height: 22px;
 }
+
+/* =========================================================
+   Carousel — Aire de Jeux (concept.html)
+   ========================================================= */
+.carousel {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.carousel-track {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.42s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+.carousel-slide {
+  flex: 0 0 100%;
+  width: 100%;
+  height: 100%;
+}
+
+.carousel-slide picture,
+.carousel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(234, 223, 204, 0.7);
+  box-shadow: 0 3px 10px rgba(61, 46, 42, 0.14);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  color: var(--ink);
+  transition: background 0.18s, transform 0.2s, box-shadow 0.18s, color 0.18s;
+  z-index: 2;
+  padding: 0;
+}
+.carousel-btn:hover {
+  background: var(--peach-soft);
+  color: var(--peach-deep);
+  box-shadow: 0 4px 14px rgba(232, 136, 74, 0.28);
+  transform: translateY(-50%) scale(1.1);
+}
+.carousel-btn:active { transform: translateY(-50%) scale(0.95); }
+.carousel-btn:focus-visible {
+  outline: 2px solid var(--peach);
+  outline-offset: 2px;
+}
+
+.carousel-prev { left: 10px; }
+.carousel-next { right: 10px; }
+
+.carousel-dots {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 7px;
+  z-index: 2;
+  padding: 0;
+}
+
+.carousel-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  border: 0;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.22s, transform 0.22s;
+  flex-shrink: 0;
+}
+.carousel-dot.active,
+.carousel-dot[aria-selected="true"] {
+  background: var(--peach);
+  transform: scale(1.35);
+}
+.carousel-dot:hover:not(.active) { background: rgba(255, 255, 255, 0.82); }
+.carousel-dot:focus-visible {
+  outline: 2px solid var(--peach);
+  outline-offset: 2px;
+}
